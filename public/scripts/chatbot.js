@@ -15,6 +15,7 @@
 var sendForm = document.querySelector('#chatform'),
     textInput = document.querySelector('.chatbox'),
     imageInput = document.querySelector('input[type=file]'),
+    fileInput = document.querySelector('#chatImage'),
     chatList = document.querySelector('.chatlist'),
     userBubble = document.querySelectorAll('.userInput'),
     botBubble = document.querySelectorAll('.bot__output'),
@@ -56,6 +57,12 @@ sendForm.onkeydown = function(e){
     }
   }
 };
+
+fileInput.onchange = function (e) {
+  e.preventDefault();
+  var image_input = imageInput.files;
+  createBubble(image_input)
+}
 
 sendForm.addEventListener('submit', function(e) {
   //so form doesnt submit page (no page refresh)
